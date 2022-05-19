@@ -1,0 +1,15 @@
+{
+  "beautify.onSave": true,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {},
+  "beautify.JSfiles": [
+    "js",
+    "json",
+    "jsbeautifyrc",
+    "jshintrc",
+    "ts"
+  ],
+  "html.format.contentUnformatted": ""
+} // Controls if the editor should automatically format the line after typing
+
+// You can auto format any files based on the file extensions type.
