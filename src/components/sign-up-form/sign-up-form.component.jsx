@@ -29,6 +29,7 @@ const SignUpForm = () => {
     const { name, value } = e.target
     setFormFields({ ...formFields, [name]: value })
   }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (password !== confirmPassword) {
@@ -40,7 +41,7 @@ const SignUpForm = () => {
       await createUserDocFromAuth(user, { displayName })
       resetFormFields()
     } catch (error) {
-      if (error.code == 'auth/email-already-in-use') {
+      if (error.code === 'auth/email-already-in-use') {
         alert('Email already exists.')
       }
       console.log('User creation error!', error)
@@ -52,16 +53,6 @@ const SignUpForm = () => {
       <h2>Don't have an account?</h2>
       <h1>Sign up with your email and password.</h1>
       <form onSubmit={handleSubmit}>
-        {/* <FormInput
-          label="Display Name"
-          inputOptions={{
-            type: 'text',
-            required: true,
-            onChange: handleChange,
-            name: 'displayName',
-            value: displayName,
-          }} // can use this or the other below
-        /> */}
         <FormInput
           label="Display Name"
           type="text"
