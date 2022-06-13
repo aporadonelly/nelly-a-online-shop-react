@@ -6,6 +6,8 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
 } from 'firebase/auth'
 
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore' //getFirestore is to instantiate firestore instance just like getAuth in auth service. doc is to retreive documents inside firestore db. getDoc is to access data in doc, and setDoc when you set data in the docs.
@@ -70,3 +72,8 @@ export const signInAuthWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return
   return await signInWithEmailAndPassword(auth, email, password)
 }
+
+export const signOutUser = async () => await signOut(auth)
+
+export const onAuthStateChangedListener = (callback) =>
+  onAuthStateChanged(auth, callback)
